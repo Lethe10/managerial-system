@@ -37,10 +37,7 @@ exports.addStudents = async(req, res) => {
     form.uploadDir = path.join(__dirname, "../", "public", "upload"); //将上传的文件存放在upload文件夹里
     form.keepExtensions = true; //保留后缀名
     form.parse(req, async(err, fields, files) => {
-
-        // let pic = files ? files.pic.path.split('public')[1] : '/images/1.png';
-        let pic = files.pic.name.split('public')[1];
-        if (pic) {
+        if (files.pic.name != '') {
             let mes = await Message.create({
                 ids: fields.ids,
                 usernames: fields.usernames,
@@ -49,9 +46,9 @@ exports.addStudents = async(req, res) => {
                 class: fields.class,
                 place: fields.place,
                 date: nowDates,
-                pic: pic
+                pic: files.pic.path.split('public')[1]
             });
-        } else {
+        } else if (files.pic.name == '') {
             let mes = await Message.create({
                 ids: fields.ids,
                 usernames: fields.usernames,
@@ -80,9 +77,11 @@ exports.searchStudents = async(req, res) => {
     } else {
         let page = Number(req.query.page) || 1; //请求的页数
         let size = Number(req.query.size) || 3; //每页显示的数据条数
-        let sum = await Message.countDocuments({ usernames: req.query.usernames }); //数据总数`
+        let sum = await Message.countDocuments({
+            usernames: new RegExp(req.query.usernames, 'gi')
+        }); //数据总数`
         let totalpages = Math.ceil(sum / size); //计算总的页数
-        let mes = await Message.find({ usernames: req.query.usernames }).skip((page - 1) * size).limit(size);
+        let mes = await Message.find({ usernames: new RegExp(req.query.usernames, 'gi') }).skip((page - 1) * size).limit(size);
         // mes = [mes];
         console.log(page); //页数
         console.log(totalpages); //总页数
@@ -132,7 +131,7 @@ exports.replace = async(req, res) => {
     form.keepExtensions = true; //保留后缀名
     form.parse(req, async(err, fields, files) => {
 
-        console.log(files.pic.name);
+
         if (files.pic.name != '') {
             mes = await Message.updateOne({ ids: mes.ids, usernames: mes.usernames, age: mes.age, class: mes.class, gender: mes.gender, place: mes.place, pic: mes.pic }, {
                 ids: fields.ids,
