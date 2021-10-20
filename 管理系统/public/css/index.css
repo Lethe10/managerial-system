@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+main {
+    background-image: url(../images/g-bg2.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#title {
+    text-align: center;
+    padding-top: 160px;
+    font-size: 50px !important;
+    color: white;
+    font-weight: 600;
+}
+
+#main {
+    margin-top: 50px;
+    background-color: rgba(182, 165, 165, 0.555);
+    box-shadow: 0px 0px 35px 10px rgb(202, 191, 191);
+    margin-bottom: 450px;
+    border-radius: 15px;
+}
+
+#head {
+    margin-top: 30px;
+    padding-left: 47px;
+    margin-bottom: 20px;
+}
+
+#head-img {
+    width: 60%;
+}
+
+.form-group .input1 {
+    height: 50px;
+    line-height: 36px;
+}
+
+form {
+    padding-bottom: 50px;
+}
+
+.form-group2 {
+    margin-top: 20px;
+}
+
+.zhuce {
+    margin-top: 20px;
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+}

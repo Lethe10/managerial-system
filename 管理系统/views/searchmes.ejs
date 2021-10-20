@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理系统</title>
+    <link rel="stylesheet" href="/css/system.css">
+    <link rel="stylesheet" href="/css/bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+</head>
+
+<body>
+    <!-- 导航 -->
+    <div class="container-fuild nav row">
+        <div class="col-xs-10" id="nav-son">
+            <div class="col-xs-1">
+                <img src="../images/2.png" class="img-circle col-xs-offset-5" id="head-img">
+            </div>
+            <div class="col-xs-11" id="text">
+                <span class="title">
+                    您好&nbsp;
+                    <%=username%>
+                    &nbsp;欢迎来到后台管理中心&nbsp;</span>
+                <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-home"></span> 后台首页</button>&nbsp;
+                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-wrench"></span> 清除缓存</button>&nbsp;
+                <a type="button" class="btn btn-danger" href="/api/index"><span class="glyphicon glyphicon-log-out"></span> 退出登录</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fuild main">
+        <div class="row">
+            <!-- 右边栏 -->
+            <div class="col-xs-2" id="aside">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            学生管理
+                          </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <ul class="list-group">
+                                <li class="list-group-item">火花27期</li>
+                                <li class="list-group-item">火花28期</li>
+                                <li class="list-group-item">火花29期</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            项目管理
+                          </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <ul class="list-group">
+                                <li class="list-group-item">医联体</li>
+                                <li class="list-group-item">大商创</li>
+                                <li class="list-group-item">维库电子</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingthree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
+                            项目管理
+                          </a>
+                            </h4>
+                        </div>
+                        <div id="collapsethree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingthree">
+                            <ul class="list-group">
+                                <li class="list-group-item">医联体</li>
+                                <li class="list-group-item">大商创</li>
+                                <li class="list-group-item">维库电子</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingfour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsethree">
+                        项目管理
+                      </a>
+                            </h4>
+                        </div>
+                        <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+                            <ul class="list-group">
+                                <li class="list-group-item">医联体</li>
+                                <li class="list-group-item">大商创</li>
+                                <li class="list-group-item">维库电子</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 主体 -->
+            <div class="col-xs-10">
+                <!-- 路径导航 -->
+                <ol class="breadcrumb lujin">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">学生管理</a></li>
+                    <li class="active">火花29期</li>
+                </ol>
+                <!-- 查询,增加模块-->
+                <div class="col-xs-11">
+                    <form class="form-inline" method="get" action="/api/searchmes">
+                        <div class="form-group">
+                            <label for="exampleInputName2">姓&emsp;名</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入要查询的名字" name="usernames">
+                        </div>
+                        <button type="submit" class="btn btn-success">查询</button>
+
+                        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#tianjia">添加信息</button>
+                    </form>
+                    <form action="/api/system"><button type="submit" class="btn btn-info pull-right allstu">显示全部</button></form>
+                </div>
+                <!-- 线 -->
+                <div class="table col-xs-11" id="line"></div>
+                <!-- 表格 -->
+                <table class="table table-striped col-xs-11">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>头像</th>
+                            <th>姓名</th>
+                            <th>班级</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>籍贯</th>
+                            <th>创建日期</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0;i<mes.length;i++){%>
+                            <tr>
+                                <td>
+                                    <%=mes[i].ids%>
+                                </td>
+                                <td>
+                                    <img src="<%=mes[i].pic?mes[i].pic:'/images/1.png'%>" width="40" height="25"> </td>
+                                <td>
+                                    <%=mes[i].usernames%>
+                                </td>
+                                <td>
+                                    <%=mes[i].class%>
+                                </td>
+                                <td>
+                                    <%=mes[i].age%>
+                                </td>
+                                <td>
+                                    <%=mes[i].gender%>
+                                </td>
+                                <td>
+                                    <%=mes[i].place%>
+                                </td>
+                                <td>
+                                    <%=mes[i].date%>
+                                </td>
+                                <td>
+                                    <form action="/api/removeStudents">
+                                        <button type="button" class="btn btn-success btn-sm"><a href=/api/remes?id=<%=mes[i].id%>>修改</a></button>
+                                        <button type="submit" class="btn btn-danger btn-sm"><a href=/api/removeStudents?id=<%=mes[i].id%>>删除</a></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </tbody>
+                </table>
+                <!-- 分页 -->
+                <nav aria-label="Page navigation pull-center row">
+                    <div class=" col-xs-8 col-xs-offset-2">
+                        <ul class="pagination">
+                            <li><a href="#">共<%=sum%>条数据</a></li>
+                            <li><a href="/api/searchmes?page=1&usernames=<%=usernames%>">首页</a></li>
+                            <li class="<%=page==1?'disabled':''%>"><a href="/api/searchmes?page=<%=page-1%>&usernames=<%=usernames%>">上一页</a></li>
+                            <% for(let i=1;i<=totalpages;i++){%>
+                                <li class="<%=page==i?'active':''%>">
+                                    <a href="/api/searchmes?page=<%=i%>&usernames=<%=usernames%>">
+                                        <%=i%>
+                                    </a>
+                                </li>
+                                <%}%>
+                                    <li class="<%=page==totalpages?'disabled':''%>"><a href="/api/searchmes?page=<%=page=page<totalpages?page+1:totalpages%>&usernames=<%=usernames%>">下一页</a></li>
+                                    <li><a href="/api/searchmes?page=<%=totalpages%>&usernames=<%=usernames%>">尾页</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- 修改模态框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="tianjia">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="row">
+                    <form class="col-xs-8 col-xs-offset-2 xiugai-form" method="post" action="/api/addStudents" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">请输入id</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ID" name="ids">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入姓名</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="usernames">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入班级</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Class" name="class">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入年龄</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Age" name="age">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入性别</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Gander" name="gender">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">请输入籍贯</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Place" name="place">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputFile">请选择头像</label>
+                            <input type="file" id="exampleInputFile" name="pic">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success col-xs-2 col-xs-offset-3 xiugai">添加</button>
+                            <button type="button" class="btn btn-danger col-xs-2 col-xs-offset-2 quxiao" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery/dist/jquery.js"></script>
+    <script src="/css/bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+</body>
+
+</html>

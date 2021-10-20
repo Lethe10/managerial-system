@@ -1,0 +1,84 @@
+            * {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+            }
+            /* bootstrap横向滚动条解决方案 */
+            
+            html {
+                overflow-y: scroll;
+            }
+            
+            body {
+                width: 100%;
+                overflow: hidden;
+            }
+            
+            .nav {
+                background-color: #377DAE;
+            }
+            
+            #head-img {
+                width: 50px;
+            }
+            
+            #nav-son {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            
+            #text {
+                font-size: 25px;
+                color: white;
+                padding-top: 5px;
+                line-height: 100%;
+            }
+            
+            .title {
+                vertical-align: middle;
+            }
+            
+            #aside {
+                background-color: #F2F9FD;
+                height: 1000px;
+                padding-right: 0;
+            }
+            
+            .list-group li:hover {
+                background-color: #35afec;
+            }
+            
+            .lujin {
+                background-color: rgb(11, 107, 185);
+            }
+            
+            #line {
+                height: 30px;
+                border-bottom: 2px solid #ccc;
+            }
+            
+            table {
+                margin-top: 20px;
+            }
+            
+            table td {
+                text-align: center;
+                line-height: 100%;
+            }
+            
+            table thead th {
+                text-align: center;
+            }
+            
+            .xiugai-form {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .allstu {
+                margin-top: 10px;
+            }
+            
+            #replace {
+                margin-top: 30px;
+            }
